@@ -1,0 +1,30 @@
+.main{
+    display:flex;
+}
+
+.main-content{
+    background-color: white;
+    margin: 3vw 2vw 10vw 5vw;
+    width: 70vw;
+    min-height: 1000px;
+}
+
+.main-right{
+    display: block
+}
+
+.main-right-finder{
+    background-color: white;
+    margin-top:3vw;
+    margin-right: 5vw;
+    height: 2vw;
+    width: 17vw;
+    
+}
+
+.main-right-menu{
+    background-color: white;
+    margin-top: 10px;
+    min-height: 600px;
+    width: 17.5vw;
+}

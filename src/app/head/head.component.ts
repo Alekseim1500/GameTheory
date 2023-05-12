@@ -6,8 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./head.component.scss']
 })
 export class HeadComponent implements OnInit {
+  logIn = false;
+  signIn = false;
 
-  constructor() { }
+
+close(){
+  document.addEventListener('keypress', event => {
+    const key = event.key;
+    if (key === "Escape") {
+        console.log("asd");
+        this.logIn=false;
+        this.signIn=false;
+    }
+});
+}
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
   }

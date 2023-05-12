@@ -34,6 +34,7 @@
 }
 
 .navbar{
+    display: flex;
     margin-left:5vw;
     margin-right: 5vw;
     margin-top: 2vw;
@@ -41,10 +42,11 @@
 }
 
 .navbar-button{
-    font-size: 20px; 
+    font-size: 20px;
+    text-align: center; 
     margin-right: 5px;
-    height: 2.5vw;
     border:0;
+    padding:1vw;
     background-color: rgb(60, 104, 218);
     color:white;
     font-family: Courier New, monospace	;
@@ -53,3 +55,27 @@
 .navbar-button:hover{
     background-color:rgb(132, 159, 228);
 }
+
+
+.logIn{
+    position: fixed;
+    display: block;
+    top:0;
+    left:0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logIn-form{
+    position: fixed;
+    min-width: 20vw;
+    min-height: 23vw;
+    border-radius: 30%;
+    border: solid;
+    margin-left: 35vw;
+    margin-top:20vw;
+    background: linear-gradient(lightblue , rgb(175, 137, 255) 30vh) no-repeat;
+    opacity: 100%;
+}
+

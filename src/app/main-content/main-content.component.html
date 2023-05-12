@@ -1,10 +1,13 @@
 <div class="main">
-    <div class="main-content"></div>
+    <div class="main-content">
+        <ng-content></ng-content>
+    </div>
     <div class="main-right">
         <input type="text" class="main-right-finder" placeholder="Поиск...">
         <div class="main-right-menu">
+            <h2>Разделы</h2>
             <p class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}<br>
-                <a class="lecture" *ngFor="let lecture of lectures1; let j = index" routerLink="/lecture"> {{i+1}}.{{j+1}} {{lecture}}<br> </a>
+                <a class="lecture" *ngFor="let lecture of lectures1; let j = index" routerLink="/lecture"> {{i+1}}.{{j+1}} {{lecture}}<br></a>
             </p>
         </div>
     </div>

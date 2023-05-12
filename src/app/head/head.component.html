@@ -6,13 +6,21 @@
         </p>
     </a>
     <div class="head-buttons">
-        <input type="button" class="head-button" value="Log in">
-        <input type="button" class="head-button" value="Sign in">
+        <button (click)="logIn=true" type="button" class="head-button" >Log in</button>
+        <button (click)="signIn=true" type="button" class="head-button" >Sign in</button>
     </div>
 </div>
 <div class="navbar"> 
-    <input type="button" class="navbar-button" value="Лекции">
-    <input type="button" class="navbar-button" value="Практики">
-    <input type="button" class="navbar-button" value="Карта стайта">
+    <a class="navbar-button" routerLink="/lectures" >Лекции</a>
+    <a class="navbar-button" routerLink="/practices" >Практики</a>
+    <a class="navbar-button" routerLink="/map" >Карта стайта</a>
+</div>
 
+<div class="logIn" *ngIf = "logIn || signIn">
+    <div class="logIn-form" *ngIf = "logIn">
+        Log In
+    </div>
+    <div class="logIn-form" *ngIf = "signIn">
+        Sign In
+    </div>
 </div>

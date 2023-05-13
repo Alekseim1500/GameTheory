@@ -6,10 +6,12 @@ import { NotFoundComponent }   from './not-found/not-found.component';
 import { LecturesComponent } from './lectures/lectures.component';
 import { PracticesComponent } from './practices/practices.component';
 import { SiteMapComponent } from './site-map/site-map.component';
+import { LectureComponent } from './lecture/lecture.component';
 
 const routes: Routes = [
   {path: '', component:  HomeComponent},
   {path: 'lectures', component: LecturesComponent},
+  {path: 'lecture', component: LectureComponent},
   {path: 'practices', component: PracticesComponent},
   {path: 'map', component:SiteMapComponent},
   {path: '**', component:  NotFoundComponent},

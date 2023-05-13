@@ -10,8 +10,8 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { LecturesComponent } from './lectures/lectures.component';
 import { PracticesComponent } from './practices/practices.component';
 import { SiteMapComponent } from './site-map/site-map.component';
-import { LogInComponent } from './log-in/log-in.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { LectureComponent } from './lecture/lecture.component';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     LecturesComponent,
     PracticesComponent,
     SiteMapComponent,
-    LogInComponent,
-    SignInComponent
+    LectureComponent,
+
   ],
   imports: [
     BrowserModule,

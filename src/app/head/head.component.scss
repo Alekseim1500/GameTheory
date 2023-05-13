@@ -1,3 +1,17 @@
+h1{
+    text-align: center;
+}
+
+h3{
+    margin:0;
+    margin-top:1vw;
+}
+
+input{
+    margin-top:0.1vw;
+    height: 30px;
+}
+
 .head{
     margin-top: 1vw;
     margin-left: 5vw;
@@ -57,7 +71,7 @@
 }
 
 
-.logIn{
+.authorization{
     position: fixed;
     display: block;
     top:0;
@@ -67,15 +81,73 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.logIn-form{
+.authorization-logIn{
     position: fixed;
     min-width: 20vw;
-    min-height: 23vw;
-    border-radius: 30%;
-    border: solid;
+    min-height: 28vw;
+    border-radius: 20%;
+    border: solid 1px;
     margin-left: 35vw;
-    margin-top:20vw;
+    margin-top:13vw;
     background: linear-gradient(lightblue , rgb(175, 137, 255) 30vh) no-repeat;
     opacity: 100%;
 }
 
+.authorization-signIn{
+    position: fixed;
+    min-width: 20vw;
+    min-height: 35vw;
+    border-radius: 15%;
+    border: solid 1px;
+    margin-left: 35vw;
+    margin-top:10vw;
+    background: linear-gradient(lightblue , rgb(175, 137, 255) 30vh) no-repeat;
+    opacity: 100%;
+}
+
+.authorization-logIn-form{
+    display:grid;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+
+.authorization-logIn-form-button{
+    font-size: 20px;
+    text-align: center; 
+    margin-top:6vw;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding:1vw;
+    background-color: blue;
+    color:white;
+    font-family: Courier New, monospace	;
+}
+
+.authorization-logIn-form-button:hover{
+    background-color: rgb(60, 104, 218);;
+}
+
+
+.authorization-logIn-form-logIn_button{
+    margin-top:10px;
+    background: none;
+    border:0;
+    font-size: 1vw;
+}
+
+.authorization-logIn-form-logIn_button:hover{
+    color:white;
+}
+
+
+.authorization-signIn-form-button{
+    font-size: 20px;
+    text-align: center; 
+    margin-top:3vw;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding:1vw;
+    background-color: blue;
+    color:white;
+    font-family: Courier New, monospace	;
+}

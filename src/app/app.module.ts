@@ -11,6 +11,8 @@ import { LecturesComponent } from './lectures/lectures.component';
 import { PracticesComponent } from './practices/practices.component';
 import { SiteMapComponent } from './site-map/site-map.component';
 import { LectureComponent } from './lecture/lecture.component';
+import { TestComponent } from './test/test.component';
+import { QuestionComponent } from './question/question.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { LectureComponent } from './lecture/lecture.component';
     PracticesComponent,
     SiteMapComponent,
     LectureComponent,
+    TestComponent,
+    QuestionComponent,
 
   ],
   imports: [

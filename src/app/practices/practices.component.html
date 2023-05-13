@@ -2,6 +2,6 @@
 <app-main-content>
     <div class="title">Практики</div>
     <p class="chapter" *ngFor="let chapter of chapters; let i = index"><br>{{i+1}}. {{chapter}}<br>
-        <a class="practice" *ngFor="let practice of practices; let j = index" routerLink="/lecture"> {{i+1}}.{{j+1}} {{practice}}<br> </a>
+        <a class="practice" *ngFor="let practice of practices; let j = index" routerLink="/test"> {{i+1}}.{{j+1}} {{practice}}<br> </a>
     </p>
 </app-main-content>

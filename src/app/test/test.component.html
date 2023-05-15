@@ -2,7 +2,12 @@
 <app-main-content>
     <h1 class="title">Практика по теме: {{testName}}</h1>
     <div class=text>
-        <p>Количество вопросов: {{questionCount}}</p>
-        <p>Время на прохождение: {{timeCount}} мин</p>
+        <p class="text-count">Количество вопросов: {{questionCount}}</p>
+        <p class="text-time">Время на прохождение: {{timeCount}} мин</p>
+    </div>
+    <button type="button" routerLink="/test/question/1" class="startTest" >Начать тест</button>
+    <div class="result"> <!--*ngFor="let result of results"-->
+        <img class="result-logo" src="../../assets/avatar.jpg">
+        <p class="result-info">{{lName}} {{fName}}. Время прохождения: {{resultTime}} мин. Результат: {{resultProsent}}</p>
     </div>
 </app-main-content>

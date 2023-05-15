@@ -9,6 +9,12 @@ export class TestComponent implements OnInit {
   testName='Название теста';
   questionCount=10;
   timeCount = 90;
+  lName = "Фамилия"
+  fName = "Имя"
+  resultTime = "101 мин"
+  resultProsent = "80%"
+
+
   constructor() { }
 
   ngOnInit(): void {

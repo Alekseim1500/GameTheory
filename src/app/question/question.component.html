@@ -1,8 +1,11 @@
 <app-head></app-head>
 <app-main-content>
     <h1 class="title">{{practicName}}</h1>
-    <div class=text>
-        <p>
-
+    <div class=main>
+        <div class="questions">
+            <button *ngFor="let question of questions; let i = index" routerLink="../{{i}}" class="question">
+                {{i}}
+            </button>
+        </div>
     </div>
 </app-main-content>

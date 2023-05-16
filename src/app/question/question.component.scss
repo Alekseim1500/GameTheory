@@ -2,3 +2,30 @@
     margin-top:2vw;
     text-align : center;
 }
+
+.questions{
+    display: inline-block;
+    max-width: 18vw;
+    min-height: 18vw;
+    margin-left: 5vw;
+    margin-top: 1vw;
+    border-radius: 5%;
+    border: solid 1px;
+    background-color: rgba(167, 231, 246, 1);
+    padding: 10px;
+}
+
+.question{
+    display: inline-block;
+    width: 1.8vw;
+    height: 1.8vw;
+    margin: 0.3vw;
+    font-size: 1vw;
+    background-color: rgba(64, 173, 173, 1);
+    border:solid 1px rgba(194, 122, 122, 1);
+    border-radius: 20%;
+}
+
+.question:hover{
+    opacity: 50%;
+}

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
   practicName = "Имя практики"
-
+  questions = [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
   constructor() { }
 
   ngOnInit(): void {

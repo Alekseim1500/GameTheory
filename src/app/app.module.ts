@@ -13,6 +13,7 @@ import { SiteMapComponent } from './site-map/site-map.component';
 import { LectureComponent } from './lecture/lecture.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { QuestionComponent } from './question/question.component';
     LectureComponent,
     TestComponent,
     QuestionComponent,
+    ProfileComponent,
 
   ],
   imports: [

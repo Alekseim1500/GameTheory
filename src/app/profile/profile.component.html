@@ -1,0 +1,22 @@
+<app-head></app-head>
+<app-main-content>
+    <h1 class="title">Личный кабинет</h1>
+    <div class="mainInfo">
+        <div class="mainInfo-avatar">
+            <img  src="../../assets/avatar.jpg" class="mainInfo-avatar-photo">
+            <input type="file" class="mainInfo-avatar-file">
+        </div>
+        <div class="mainInfo-info">
+            <p>Фамилия: {{lName}}</p>
+            <p>Имя: {{fName}}</p>
+            <p>Email: {{email}}</p>
+        </div>
+    </div>
+    <div class="change-password">   
+        <h2>Изменение пароля: </h2>
+        <input type="text" class="pass" placeholder="Старый пароль">
+        <input type="text" class="pass" placeholder="Новый пароль">
+        <input type="text" class="pass" placeholder="Повтопр нового пароля">
+        <button class="chenge">Изменить пароль</button>
+    </div>
+</app-main-content>

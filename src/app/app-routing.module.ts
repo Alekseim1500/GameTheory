@@ -10,9 +10,11 @@ import { LectureComponent } from './lecture/lecture.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 const routes: Routes = [
   {path: '', component:  HomeComponent},
+  {path:'authorization', component: AuthorizationComponent},
   {path: 'lectures', component: LecturesComponent},
   {path: 'lecture', component: LectureComponent},
   {path: 'practices', component: PracticesComponent},

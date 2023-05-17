@@ -1,0 +1,63 @@
+p{
+    margin-bottom: 1vw;
+}
+
+.title{
+    margin-top:2vw;
+    text-align : center;
+}
+
+.mainInfo{
+    display: flex;
+}
+
+.mainInfo-avatar{
+    display: grid;
+    text-align: center;
+}
+
+.mainInfo-avatar-photo{
+    width: 20vw;
+    height: 20vw;
+    margin-top:1vw;
+    margin-left: 3vw;
+    border: solid;
+    border-radius: 50%;
+}
+
+.mainInfo-avatar-file{
+    margin-top: 1vw;
+    margin-left: 5vw;
+}
+
+.mainInfo-info{
+    font-size: 3vw;
+    margin-top:3vw;
+    margin-left: 2vw;
+    
+}
+
+.change-password{
+    display: inline-block;
+    margin-left:3vw;
+}
+
+.pass{
+    display: block;
+    font-size: 2vw;
+    margin-top:2vw;
+    background-color: lightgray;
+}
+
+.chenge{
+    font-size: 20px;
+    text-align: center; 
+    margin-left:6vw;
+    margin-top:2vw;
+    padding:1vw;
+    background-color: rgb(238, 101, 101);
+}
+
+.chenge:hover{
+    background-color: rgba(238, 101, 101,0.5);
+}

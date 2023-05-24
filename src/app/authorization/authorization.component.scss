@@ -3,8 +3,8 @@ h1{
 }
 
 input{
-    width: 10vw;
-    height: 1vw;
+    width: 15vw;
+    height: 2vw;
 }
 
 .authorization-logIn{
@@ -36,11 +36,12 @@ input{
 }
 
 .authorization-logIn-form-button{
-    font-size: 1vw;
+    font-size: 20px;
     text-align: center; 
-    width: 8vw;
-    margin-top: 2vw;
-    padding:0.1vw;
+    margin-top:3vw;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding:1vw;
     background-color: blue;
     color:white;
     font-family: Courier New, monospace	;
@@ -73,4 +74,12 @@ input{
     background-color: blue;
     color:white;
     font-family: Courier New, monospace	;
+}
+
+.authorization-signIn-block{
+    display: flex;
+}
+
+.block2{
+    margin-left: 5vw;
 }

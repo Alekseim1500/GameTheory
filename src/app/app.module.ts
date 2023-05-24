@@ -15,6 +15,8 @@ import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { AddLectureComponent } from './add-lecture/add-lecture.component';
+import { AddPracticeComponent } from './add-practice/add-practice.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { AuthorizationComponent } from './authorization/authorization.component'
     QuestionComponent,
     ProfileComponent,
     AuthorizationComponent,
+    AddLectureComponent,
+    AddPracticeComponent,
 
   ],
   imports: [

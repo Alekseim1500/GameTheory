@@ -30,7 +30,7 @@ input{
     font-family: Arial, sans-serif;
 }
 
-.head-buttons{
+.head-login{
     margin-left:10vw;
     margin-top: 2vw;
 }
@@ -150,4 +150,48 @@ input{
     background-color: blue;
     color:white;
     font-family: Courier New, monospace	;
+}
+
+.head-login-logo{
+    display: inline-block;
+    border-radius: 50%;
+    margin-top:0.25vw;
+    width: 3vw;
+    height: 3vw;
+}
+
+.head-login-info{
+    font-size: 1.5vw;
+    display: inline-block;
+    position: relative;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    top: -1vw;
+}
+
+
+.menu{
+    position: absolute;
+    display: grid;
+    min-width: 12vw;
+    margin-left: 1.25vw;
+    background-color:white;
+    padding-left: 1vw;
+    padding-right:2vw;
+    padding-top: 1vw;  
+    padding-bottom: 1vw;  
+
+}
+
+.menu-item{
+    font-size: 1.75vw;
+    margin-top:0.5vw;
+}
+
+.exit{
+    background-color: red;
+}
+
+.exit:hover{
+    background-color: rgba(255, 0, 0, 0.5);
 }

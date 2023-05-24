@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeadComponent implements OnInit {
   logIn = false;
   signIn = false;
-
+  openMenu = false;
+  teacher=true;
+  fName='Имя'
+  lName='Фамилия'
 
   constructor() {
   document.addEventListener('keyup', event => {

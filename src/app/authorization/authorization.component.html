@@ -6,24 +6,30 @@
             <input type="text" placeholder="Логин">
             <h3>Пароль:</h3>
             <input type="password" placeholder="Электронная почта">
-            <button type="button" class="authorization-logIn-form-button">Авторизация</button>
+            <button type="button" routerLink='/' class="authorization-logIn-form-button">Авторизация</button>
             <button (click)="logIn=false; signIn=true" type="button" class="authorization-logIn-form-logIn_button" >Зарегистрироваться</button>
         </div>
     </div>
     <div class="authorization-signIn" *ngIf = "signIn">
         <div class="authorization-logIn-form">
             <h1>Sign In</h1>
-            <h3>Электронная почта:</h3>
-            <input type="text" placeholder="Электронная почта">
-            <h3>Фамилия:</h3>
-            <input type="text" placeholder="Фамилия">
-            <h3>Имя:</h3>
-            <input type="text" placeholder="Имя">
-            <h3>Пароль:</h3>
-            <input type="password" placeholder="Пароль">
-            <h3>Повтор пароля:</h3>
-            <input type="password" placeholder="Повтор пароля">
-            <button type="button" class="authorization-signIn-form-button">Регистрация</button>
+            <div class="authorization-signIn-block">
+                <div>
+                    <h3>Электронная почта:</h3>
+                    <input type="text" placeholder="Электронная почта">
+                    <h3>Пароль:</h3>
+                    <input type="password" placeholder="Пароль">
+                    <h3>Повтор пароля:</h3>
+                    <input type="password" placeholder="Повтор пароля">
+                </div>
+                <div class="block2">
+                    <h3>Фамилия:</h3>
+                    <input type="text" placeholder="Фамилия">
+                    <h3>Имя:</h3>
+                    <input type="text" placeholder="Имя">
+                </div>
+            </div>
+            <button type="button" routerLink='/' class="authorization-signIn-form-button">Регистрация</button>
             <button (click)="logIn=true; signIn=false" type="button" class="authorization-logIn-form-logIn_button" >Уже есть аккаунт</button>
         </div>
     </div>

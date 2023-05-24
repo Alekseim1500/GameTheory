@@ -3,9 +3,40 @@
     <h1 class="title">{{practicName}}</h1>
     <div class=main>
         <div class="questions">
-            <button *ngFor="let question of questions; let i = index" routerLink="../{{i}}" class="question">
-                {{i}}
+            <button *ngFor="let question of questions; let i = index" routerLink="../{{i+1}}" class="question" [ngClass]="{answered:question.isAnsvered, active:question.isActive}" >
+                {{i+1}}
             </button>
         </div>
+        <div>
+            <h2>Вопрос номер №1</h2>
+            <div class="questionText">{{questionText}}</div>
+        </div>
+    </div>
+    <div *ngIf="false" class="answers">
+        <div>
+            <input type="radio" id="answer1" name="answer" >
+            <label for="answer1">Игры с нулевой суммой</label>
+        </div>
+        <div>
+            <input type="radio" id="answer2" name="answer" >
+            <label for="answer2">Игры с не нулевой суммой</label>
+        </div>
+        <div>
+            <input type="radio" id="answer3" name="answer" >
+            <label for="answer3">Стратегиея</label>
+        </div>
+        <div>
+            <input type="radio" id="answer4" name="answer" >
+            <label for="answer4">Основная теорема матричных игр</label>
+        </div>
+    </div>
+    <div *ngIf="true" class="answers">
+        <h3>Введите ответ:</h3>
+        <textarea class="inputField" placeholder="Введите ответ"></textarea>
+    </div>
+    <div class="buttons">
+        <button type="button" class="check chenge" >Предыдущий вопрос</button>
+        <button type="button" class="check" >Проверить</button>
+        <button type="button" class="check chenge" >Следующий вопрос</button>
     </div>
 </app-main-content>

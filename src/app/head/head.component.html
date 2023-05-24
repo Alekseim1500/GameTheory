@@ -5,9 +5,15 @@
             Сборник лекций и практический заданий
         </p>
     </a>
-    <div class="head-buttons">
-        <button (click)="logIn=true" type="button" class="head-button" >Log in</button>
-        <button (click)="signIn=true" type="button" class="head-button" >Sign in</button>
+    <div class="head-login">
+            <img class="head-login-logo" src="../../assets/avatar.jpg">
+            <p class="head-login-info">{{lName}} {{fName}} <button (click)="openMenu=!openMenu" class="head-login-button">∇</button></p>
+            <div class="menu" *ngIf="openMenu">
+                <a class="menu-item" routerLink="/profile">Личный кабинет</a>
+                <a class="menu-item" *ngIf="teacher">Добавить лекцию</a>
+                <a class="menu-item" *ngIf="teacher">Добавить тест</a>
+                <button class="menu-item exit">Выйти</button>
+            </div>
     </div>
 </div>
 <div class="navbar"> 

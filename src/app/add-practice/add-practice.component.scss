@@ -1,0 +1,59 @@
+p{
+    font-size:2vw;
+    margin-top:1vw;
+}
+
+select{
+    font-size:2vw;
+}
+
+input{
+    font-size:2vw;
+}
+
+.title{
+    margin-top:2vw;
+    text-align : center;
+}
+
+.context{
+    margin: 3vw;
+}
+
+.context-text{
+    font-size: 2vw;
+    margin-top:1vw;
+    margin-bottom:1vw;
+}
+
+.inputField{
+    width: 60vw;
+    height: 20vw;
+    font-size: 2vw;
+    resize: none;
+}
+
+.answers{
+    margin-top:2vw;
+}
+
+.answer-const{
+    font-size: 2vw;
+}
+
+.answer{
+    display: flex;
+}
+
+.inputFieldAnswer{
+    font-size: 2vw;
+    resize: none;
+}
+
+.add{
+    font-size: 1.5vw;
+    text-align: center; 
+    margin-left:30vw;
+    padding:1vw;
+    background-color: rgb(238, 101, 101);
+}

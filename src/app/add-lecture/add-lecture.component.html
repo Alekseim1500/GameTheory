@@ -1,1 +1,15 @@
-<p>add-lecture works!</p>
+<app-head></app-head>
+<app-main-content>
+    <h1 class="title">ДОБАВИТЬ ЛЕКЦИЮ</h1>
+    <div class = "context">
+        <p class="context-text">Выберите раздел:</p>
+        <select >
+                <option *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}</option>
+        </select>
+        <p class="context-text">Выберите название лекции:</p>
+        <input type="text" placeholder="Нозвание лекции">
+        <p class="context-text">Добавьте лекцию Word:</p>
+        <input type="file" class="inputFile" accept=".doc,.docx">
+    </div>
+    <button class="add">Добавить лекцию</button>
+</app-main-content>

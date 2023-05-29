@@ -1,1 +1,54 @@
-<p>add-practice works!</p>
+<app-head></app-head>
+<app-main-content>
+    <h1 class="title">ДОБАВИТЬ ТЕСТ</h1>
+    <div class = "context">
+        <p class="context-text">Выберите раздел:</p>
+        <select>
+                <option *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}</option>
+        </select>
+        <p class="context-text">Выберите лекцию:</p>
+        <select>
+                <option *ngFor="let lectur of lectures; let i = index">{{i+1}}. {{lectur}}</option>
+        </select>
+        <p class="context-text">Выберите название теста:</p>
+        <input type="text" placeholder="Нозвание теста">
+        <div class="question">
+            <h2>Вопрос №1</h2>
+            <div>
+                <p>Введите текст вопроса</p>
+                <textarea class="inputField" placeholder="Введите текст вопроса"></textarea>
+                <p>Добавить картинку(НЕОБЯЗАТЕЛЬНО):</p>
+                <input type="file" class="inputFile" accept="image/*">
+            </div>
+            <div *ngIf="false" class="answers">
+                <p>Выберите верный вариант</p>
+                <p class="answer-const">Вариант1</p>
+                    <div class="answer">
+                        <input type="radio" id="answer1" name="answer" >
+                        <input class ="answer-text" type="text">
+                    </div>
+                <p class="answer-const">Вариант2</p>
+                    <div class="answer">
+                        <input type="radio" id="answer1" name="answer" >
+                        <input class ="answer-text" type="text">
+                    </div>
+                    <p class="answer-const">Вариант3</p>
+                    <div class="answer">
+                        <input type="radio" id="answer1" name="answer" >
+                        <input class ="answer-text" type="text">
+                    </div>
+                <p class="answer-const">Вариант4</p>
+                    <div class="answer">
+                        <input type="radio" id="answer1" name="answer" >
+                        <input class ="answer-text" type="text">
+                    </div>
+                </div>
+                <div *ngIf="true" class="answers">
+                    <h3>Введите ответ:</h3>
+                    <textarea class="inputFieldAnswer" placeholder="Введите ответ"></textarea>
+                </div>
+        </div>
+    </div>
+    <button class="add">Добавить тест</button>
+
+</app-main-content>

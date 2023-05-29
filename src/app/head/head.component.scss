@@ -185,7 +185,12 @@ input{
 
 .menu-item{
     font-size: 1.75vw;
+    color:black;
     margin-top:0.5vw;
+}
+
+.menu-item:hover{
+    color:blue;
 }
 
 .exit{

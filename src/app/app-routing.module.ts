@@ -11,6 +11,8 @@ import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { AddLectureComponent } from './add-lecture/add-lecture.component';
+import { AddPracticeComponent } from './add-practice/add-practice.component';
 
 const routes: Routes = [
   {path: '', component:  HomeComponent},
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'map', component: SiteMapComponent},
   {path: 'test', children:[{path:'question/:id', component: QuestionComponent},{path:'',component:TestComponent}]},
   {path: 'profile', component: ProfileComponent},
+  {path: 'addlecture', component: AddLectureComponent},
+  {path: 'addpractice', component: AddPracticeComponent},
   {path: '**', component:  NotFoundComponent},
 ];
 

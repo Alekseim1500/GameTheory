@@ -10,8 +10,8 @@
             <p class="head-login-info">{{lName}} {{fName}} <button (click)="openMenu=!openMenu" class="head-login-button">∇</button></p>
             <div class="menu" *ngIf="openMenu">
                 <a class="menu-item" routerLink="/profile">Личный кабинет</a>
-                <a class="menu-item" *ngIf="teacher">Добавить лекцию</a>
-                <a class="menu-item" *ngIf="teacher">Добавить тест</a>
+                <a class="menu-item" routerLink="/addlecture" *ngIf="teacher">Добавить лекцию</a>
+                <a class="menu-item" routerLink="/addpractice" *ngIf="teacher">Добавить тест</a>
                 <button class="menu-item exit">Выйти</button>
             </div>
     </div>

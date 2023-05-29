@@ -1,0 +1,34 @@
+select{
+    font-size:2vw;
+}
+
+input{
+    font-size:2vw;
+}
+
+.title{
+    margin-top:2vw;
+    text-align : center;
+}
+
+.context{
+    margin: 3vw;
+}
+
+.context-text{
+    font-size: 2vw;
+    margin-top:1vw;
+    margin-bottom:1vw;
+}
+
+.add{
+    font-size: 1.5vw;
+    text-align: center; 
+    margin-left:30vw;
+    padding:1vw;
+    background-color: rgb(238, 101, 101);
+}
+
+.add:hover{
+    background-color: rgba(238, 101, 101,0.5);
+}

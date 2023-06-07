@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +16,13 @@ import { LectureComponent } from './lecture/lecture.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { AddLectureComponent } from './add-lecture/add-lecture.component';
 import { AddPracticeComponent } from './add-practice/add-practice.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptor } from './token.interceptor';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -33,16 +39,31 @@ import { AddPracticeComponent } from './add-practice/add-practice.component';
     TestComponent,
     QuestionComponent,
     ProfileComponent,
-    AuthorizationComponent,
     AddLectureComponent,
     AddPracticeComponent,
+    LogInComponent,
+    SignInComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter: reqest=>reqest as any
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    {
+    provide:HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: TokenInterceptor
+   }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

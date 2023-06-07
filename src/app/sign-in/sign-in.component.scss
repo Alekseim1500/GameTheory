@@ -47,8 +47,12 @@ input{
     font-family: Courier New, monospace	;
 }
 
-.authorization-logIn-form-button:hover{
+.authorization-signIn-form-button:hover{
     background-color: rgb(60, 104, 218);;
+}
+
+.authorization-signIn-form-button:disabled{
+    background-color: rgba(60, 104, 218, 0.5);
 }
 
 
@@ -82,4 +86,9 @@ input{
 
 .block2{
     margin-left: 5vw;
+}
+
+.error{
+    color:red;
+    font-size:1vw;
 }

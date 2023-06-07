@@ -1,0 +1,37 @@
+<div class="authorization">
+    <form class="authorization-signIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="authorization-logIn-form">
+            <h1>Sign In</h1>
+            <div class="authorization-signIn-block">
+                <div>
+                    <h3>Электронная почта:</h3>
+                    <input type="text" placeholder="Электронная почта" formControlName="email">
+                    <span class="error" *ngIf="form.controls['email'].touched && form.controls['email'].invalid">
+                        <span *ngIf="form.controls['email'].hasError('required')">Почта обязательна</span>
+                        <span *ngIf="form.controls['email'].hasError('email')">Неверный формат email</span>
+                    </span>
+                    <h3>Пароль:</h3>
+                    <input type="password" placeholder="Пароль" formControlName="password">
+                    <span class="error" *ngIf="form.controls['password'].touched && form.controls['password'].invalid">
+                        <span *ngIf="form.controls['password'].hasError('required')">Пароль обязательна</span>
+                        <span *ngIf="form.controls['password'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+                    </span>
+                </div>
+                <div class="block2"> 
+                    <h3>Фамилия:</h3>
+                    <input type="text" placeholder="Фамилия" formControlName="fName">
+                    <span class="error" *ngIf="form.controls['fName'].touched && form.controls['fName'].invalid">
+                        <span *ngIf="form.controls['fName'].hasError('required')">Имя обязательна</span>
+                    </span>
+                    <h3>Имя:</h3>
+                    <input type="text" placeholder="Имя" formControlName="lName">
+                    <span class="error" *ngIf="form.controls['lName'].touched && form.controls['lName'].invalid">
+                        <span *ngIf="form.controls['lName'].hasError('required')">Фамилия обязательна</span>
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="authorization-signIn-form-button" [disabled]="form.invalid || form.disabled">Регистрация</button>
+            <button type="button" routerLink="/login" class="authorization-logIn-form-logIn_button" >Уже есть аккаунт</button>
+        </div>
+    </form>
+</div>

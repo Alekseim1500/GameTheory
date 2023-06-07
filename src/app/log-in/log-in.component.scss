@@ -1,0 +1,96 @@
+h1{
+    text-align: center;
+}
+
+input{
+    width: 15vw;
+    height: 2vw;
+}
+
+.authorization-logIn{
+    position: fixed;
+    min-width: 50vw;
+    min-height: 32vw;
+    border-radius: 10%;
+    border: solid 1px;
+    margin-left: 25vw;
+    margin-top:10vw;
+    background: linear-gradient(lightblue , rgb(175, 137, 255) 30vh) no-repeat;
+}
+
+.authorization-signIn{
+    position: fixed;
+    min-width: 50vw;
+    min-height: 32vw;
+    border-radius: 10%;
+    border: solid 1px;
+    margin-left: 25vw;
+    margin-top:10vw;
+    background: linear-gradient(lightblue , rgb(175, 137, 255) 30vh) no-repeat;
+}
+
+.authorization-logIn-form{
+    display:grid;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+
+.authorization-logIn-form-button{
+    font-size: 20px;
+    text-align: center; 
+    margin-top:3vw;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding:1vw;
+    background-color: blue;
+    color:white;
+    font-family: Courier New, monospace	;
+}
+
+.authorization-logIn-form-button:hover{
+    background-color: rgb(60, 104, 218);
+}
+
+.authorization-logIn-form-button:disabled{
+    background-color: rgba(60, 104, 218, 0.5);
+}
+
+
+
+.authorization-logIn-form-logIn_button{
+    margin-top:10px;
+    background: none;
+    border:0;
+    font-size: 1vw;
+}
+
+.authorization-logIn-form-logIn_button:hover{
+    color:white;
+}
+
+
+.authorization-signIn-form-button{
+    font-size: 20px;
+    text-align: center; 
+    margin-top:3vw;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding:1vw;
+    background-color: blue;
+    color:white;
+    font-family: Courier New, monospace	;
+}
+
+.authorization-signIn-block{
+    display: flex;
+}
+
+.block2{
+    margin-left: 5vw;
+}
+
+
+.error{
+    color:red;
+    font-size:1vw;
+}

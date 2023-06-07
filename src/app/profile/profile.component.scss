@@ -27,7 +27,6 @@ p{
 
 .mainInfo-avatar-file{
     margin-top: 1vw;
-    margin-left: 5vw;
 }
 
 .mainInfo-info{
@@ -58,6 +57,16 @@ p{
     background-color: rgb(238, 101, 101);
 }
 
-.chenge:hover{
+.change:hover{
     background-color: rgba(238, 101, 101,0.5);
+}
+
+.change:disabled{
+    background-color: rgba(238, 101, 101,0.5);
+}
+
+
+.error{
+    color:red;
+    font-size:1vw;
 }

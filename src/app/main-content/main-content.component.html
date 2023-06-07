@@ -5,8 +5,8 @@
     <div class="main-right">
         <div class="main-right-menu">
             <h2>Разделы</h2>
-            <p class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}<br>
-                <a class="lecture" *ngFor="let lecture of lectures1; let j = index" routerLink="/lecture"> {{i+1}}.{{j+1}} {{lecture}}<br></a>
+            <p class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter.title}}<br>
+                <a class="lecture" *ngFor="let lecture of chapter.lectures; let j = index" routerLink="/lecture/{{lecture.id}}"> {{i+1}}.{{j+1}} {{lecture.title}}<br></a>
             </p>
         </div>
     </div>

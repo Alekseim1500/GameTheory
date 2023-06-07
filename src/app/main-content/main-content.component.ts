@@ -1,19 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import {ContentService} from '../services/content.service';
 
 @Component({
   selector: 'app-main-content',
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss']
 })
-export class MainContentComponent implements OnInit {
-  chapters=["Chapter1", "Chapter2", "Chapter3"];
-  lectures1=["Lecture11","Lecture12","Lecture13"];
-  lectures2=["Lecture21","Lecture22","Lecture23"];
-  lectures3=["Lecture31","Lecture32","Lecture33"];
+export class MainContentComponent implements OnInit, OnDestroy {
+  aSub!: Subscription 
+  chapters: any
 
-  constructor() { }
+
+
+  constructor(private contentService: ContentService) { }
+
 
   ngOnInit(): void {
+    this.aSub = this.contentService.getChapters().subscribe(
+      (Chapters: any) => {
+        this.chapters=Chapters      
+      }
+    )
+
   }
+
+    
+  ngOnDestroy(){
+    if(this.aSub){
+      this.aSub.unsubscribe()
+    }
+  }
+
 
 }

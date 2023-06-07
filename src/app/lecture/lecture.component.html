@@ -1,8 +1,8 @@
 <app-head></app-head>
 <app-main-content>
-    <h1 class="title">{{lectureName}}</h1>
+    <h1 class="title">{{lectire.title}}</h1>
     <div class=text>
-        {{lectureText}}
+        
     </div>
 </app-main-content>
-<button type="button" routerLink="/test" class="toTest" >Перейти к тесту по теме</button>
+<button *ngIf="lectire.tests.length!=0" type="button" routerLink="/test/{{lectire.tests[0].id}}" class="toTest" >Перейти к тесту по теме</button>

@@ -3,20 +3,37 @@
     <h1 class="title">Личный кабинет</h1>
     <div class="mainInfo">
         <div class="mainInfo-avatar">
-            <img  src="../../assets/avatar.jpg" class="mainInfo-avatar-photo">
-            <input type="file" class="mainInfo-avatar-file">
+            <img  [src]="imagePreview" class="mainInfo-avatar-photo">
+            <input style="display: none;" type="file" class="mainInfo-avatar-file" #input (change)="onFileUpload($event)">
+            <button class="change mainInfo-avatar-file" (click)="triggerClick()">Загрузить аватар</button>
         </div>
         <div class="mainInfo-info">
-            <p>Фамилия: {{lName}}</p>
-            <p>Имя: {{fName}}</p>
-            <p>Email: {{email}}</p>
+            <p>Фамилия: {{userInfo.lastName}}</p>
+            <p>Имя: {{userInfo.firstName}}</p>
+            <p>Email: {{userInfo.email}}</p>
         </div>
     </div>
-    <div class="change-password">   
+    <form 
+        class="change-password"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+    >
         <h2>Изменение пароля: </h2>
-        <input type="text" class="pass" placeholder="Старый пароль">
-        <input type="text" class="pass" placeholder="Новый пароль">
-        <input type="text" class="pass" placeholder="Повтопр нового пароля">
-        <button class="change">Изменить пароль</button>
-    </div>
+        <input type="text" class="pass" placeholder="Старый пароль" formControlName="current">
+        <span class="error" *ngIf="form.controls['current'].touched && form.controls['current'].invalid">
+            <span *ngIf="form.controls['current'].hasError('required')">Пароль обязательна</span>
+            <span *ngIf="form.controls['current'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+        </span>
+        <input type="text" class="pass" placeholder="Новый пароль" formControlName="new">
+        <span class="error" *ngIf="form.controls['new'].touched && form.controls['new'].invalid">
+            <span *ngIf="form.controls['new'].hasError('required')">Пароль обязательна</span>
+            <span *ngIf="form.controls['new'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+        </span>
+        <input type="text" class="pass" placeholder="Повтопр нового пароля" formControlName="newR">
+        <span class="error" *ngIf="form.controls['newR'].touched && form.controls['newR'].invalid">
+            <span *ngIf="form.controls['newR'].hasError('required')">Пароль обязательна</span>
+            <span *ngIf="form.controls['newR'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+        </span>
+        <button [disabled]="form.invalid || form.disabled" type="submit" class="change">Изменить пароль</button>
+    </form>
 </app-main-content>

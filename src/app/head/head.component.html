@@ -2,24 +2,25 @@
     <a routerLink="/home" class="head-logo">
         <img src="../../assets/logo.png" width="90" height="90">
         <p class="head-logo-text">{{'Теория игр' | translate}}<br>
-            Сборник лекций и практический заданий
+            {{'Сборник' | translate}}
         </p>
     </a>
+    <div class="space"></div>
     <div class="head-login">
             <img class="head-login-logo" [src]="imagePreview">
             <p class="head-login-info">{{userInfo.firstName}} {{userInfo.lastName}} <button (click)="openMenu=!openMenu" class="head-login-button">∇</button></p>
             <div class="menu" *ngIf="openMenu">
-                <a class="menu-item" routerLink="/profile">Личный кабинет</a>
+                <a class="menu-item" routerLink="/profile">{{'Личный кабинет' | translate}}</a>
                 <a class="menu-item" routerLink="/addlecture" *ngIf="teacher">Работа с лекциями</a>
                 <a class="menu-item" routerLink="/addpractice" *ngIf="teacher">Работа с тестами</a>
-                <button class="menu-item exit" (click)="logout($event)">Выйти</button>
+                <button class="menu-item exit" (click)="logout($event)">{{'Выйти' | translate}}</button>
             </div>
     </div>
 </div>
 <div class="navbar"> 
-    <a class="navbar-button" routerLink="/lectures" >Лекции</a>
-    <a class="navbar-button" routerLink="/practices" >Практики</a>
-    <a class="navbar-button" routerLink="/map" >Карта стайта</a>
+    <a class="navbar-button" routerLink="/lectures" >{{'Лекции' | translate}}</a>
+    <a class="navbar-button" routerLink="/practices" >{{'Практики' | translate}}</a>
+    <a class="navbar-button" routerLink="/map" >{{'Карта сайта' | translate}}</a>
     <div class="space"></div>
     <select class="navbar-button last" #changeLang (change)="changeLanguage(changeLang.value)">
         <option value ="ch">中國人</option>

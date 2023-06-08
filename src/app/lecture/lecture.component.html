@@ -7,4 +7,4 @@
         ></ngx-doc-viewer>
     </div>
 </app-main-content>
-<button *ngIf="lecture.tests.length!=0" type="button" routerLink="/test/{{lecture.tests[0].id}}" class="toTest" >Перейти к тесту по теме</button>
+<button *ngIf="lecture.tests.length!=0" type="button" routerLink="/test/{{lecture.tests[0].id}}" class="toTest" >{{"Перейти к тесту"| translate}}</button>

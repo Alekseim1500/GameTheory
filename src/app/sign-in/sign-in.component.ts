@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,8 +16,10 @@ export class SignInComponent implements OnInit, OnDestroy{
   
   constructor(private auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public translate: TranslateService
     ){
+      translate.addLangs(['ch','ru'])
 }
 
   ngOnInit(){
@@ -50,4 +53,10 @@ export class SignInComponent implements OnInit, OnDestroy{
       }
     )
   }
+
+  changeLanguage(lang: string){
+    this.translate.use(lang)
+  }
+
+
 }

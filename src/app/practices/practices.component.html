@@ -1,6 +1,6 @@
 <app-head></app-head>
 <app-main-content>
-    <div class="title">Практики</div>
+    <div class="title">{{'Практики' | translate}}</div>
     <p class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter.title}}<br>
         <a *ngFor="let lecture of chapter.lectures" routerLink="/lecture/{{lecture.id}}">
             <a class="practice" *ngFor="let practice of lecture.tests; let j = index" routerLink="/test/{{practice.id}}"> {{i+1}}.{{j+1}} {{practice.title}}</a>

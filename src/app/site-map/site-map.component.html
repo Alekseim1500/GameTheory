@@ -1,6 +1,6 @@
 <app-head></app-head>
 <app-main-content>
-    <div class="title">Карта сайта</div>
+    <div class="title">{{'Карта сайта' | translate}}</div>
     <div class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter.title}}<br>
         <div *ngFor="let lecture of chapter.lectures; let j = index" >
             <a class="lecture" routerLink="/lecture/{{lecture.id}}"> {{i+1}}.{{j+1}} {{lecture.title}}<br></a>

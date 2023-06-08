@@ -5,21 +5,25 @@
     (ngSubmit)="onSubmit()"
     >
         <div class="authorization-logIn-form">
-            <h1>Log In</h1>
-            <h3>Электронная почта:</h3>
-            <input type="text" id="email" placeholder="Электронная почта" formControlName="email">
+            <h1>Log In  <select class="navbar-button last" #changeLang (change)="changeLanguage(changeLang.value)">
+                <option value ="ru">Русский</option>
+                <option value ="ch">中國人</option>
+            </select>
+        </h1>
+            <h3>Email:</h3>
+            <input type="text" id="email" placeholder="Email" formControlName="email">
             <span class="error" *ngIf="form.controls['email'].touched && form.controls['email'].invalid">
-                <span *ngIf="form.controls['email'].hasError('required')">Почта обязательна</span>
-                <span *ngIf="form.controls['email'].hasError('email')">Неверный формат email</span>
+                <span *ngIf="form.controls['email'].hasError('required')">{{"Почта обязательна"| translate}}</span>
+                <span *ngIf="form.controls['email'].hasError('email')">{{"Неверный формат email"| translate}}</span>
             </span>
-            <h3>Пароль:</h3>
-            <input type="password" id="password" placeholder="Пароль" formControlName="password">
+            <h3>{{"Пароль"| translate}}:</h3>
+            <input type="password" id="password" placeholder="{{'Пароль'| translate}}" formControlName="password">
             <span class="error" *ngIf="form.controls['password'].touched && form.controls['password'].invalid">
-                <span *ngIf="form.controls['password'].hasError('required')">Пароль обязательна</span>
-                <span *ngIf="form.controls['password'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+                <span *ngIf="form.controls['password'].hasError('required')">{{"Пароль обязателен"| translate}}</span>
+                <span *ngIf="form.controls['password'].hasError('minlength')">{{"Пароль должен быть больше 4 символов"| translate}}</span>
             </span>
-            <button type="submit" class="authorization-logIn-form-button" [disabled]="form.invalid || form.disabled">Авторизация</button>
-            <button type="button" routerLink='/signin' class="authorization-logIn-form-logIn_button" >Зарегистрироваться</button>
+            <button type="submit" class="authorization-logIn-form-button" [disabled]="form.invalid || form.disabled">{{"Авторизация"| translate}}</button>
+            <button type="button" routerLink='/signin' class="authorization-logIn-form-logIn_button" >{{"Зарегистрироваться"| translate}}</button>
         </div>
     </form>
 </div>

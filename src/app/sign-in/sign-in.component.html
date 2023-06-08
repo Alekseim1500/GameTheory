@@ -1,37 +1,42 @@
 <div class="authorization">
     <form class="authorization-signIn" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="authorization-logIn-form">
-            <h1>Sign In</h1>
+            <h1>Sign In<select class="navbar-button last" #changeLang (change)="changeLanguage(changeLang.value)">
+                <option value ="ru">Русский</option>
+                <option value ="ch">中國人</option>
+            </select>
+            </h1>
             <div class="authorization-signIn-block">
+
                 <div>
-                    <h3>Электронная почта:</h3>
-                    <input type="text" placeholder="Электронная почта" formControlName="email">
+                    <h3>Email:</h3>
+                    <input type="text" placeholder="Email" formControlName="email">
                     <span class="error" *ngIf="form.controls['email'].touched && form.controls['email'].invalid">
-                        <span *ngIf="form.controls['email'].hasError('required')">Почта обязательна</span>
-                        <span *ngIf="form.controls['email'].hasError('email')">Неверный формат email</span>
+                        <span *ngIf="form.controls['email'].hasError('required')">{{'Почта обязательна' | translate}}</span>
+                        <span *ngIf="form.controls['email'].hasError('email')">{{'Неверный формат email' | translate}}</span>
                     </span>
-                    <h3>Пароль:</h3>
-                    <input type="password" placeholder="Пароль" formControlName="password">
+                    <h3>{{'Пароль' | translate}}:</h3>
+                    <input type="password" placeholder="{{'Пароль' | translate}}" formControlName="password">
                     <span class="error" *ngIf="form.controls['password'].touched && form.controls['password'].invalid">
-                        <span *ngIf="form.controls['password'].hasError('required')">Пароль обязательна</span>
-                        <span *ngIf="form.controls['password'].hasError('minlength')">Пароль должен быть больше 4 символов</span>
+                        <span *ngIf="form.controls['password'].hasError('required')">{{'Пароль обязателен' | translate}}</span>
+                        <span *ngIf="form.controls['password'].hasError('minlength')">{{'Пароль должен быть больше 4 символов' | translate}}</span>
                     </span>
                 </div>
                 <div class="block2"> 
-                    <h3>Фамилия:</h3>
-                    <input type="text" placeholder="Фамилия" formControlName="fName">
+                    <h3>{{'Фамилия' | translate}}:</h3>
+                    <input type="text" placeholder="{{'Фамилия' | translate}}" formControlName="fName">
                     <span class="error" *ngIf="form.controls['fName'].touched && form.controls['fName'].invalid">
-                        <span *ngIf="form.controls['fName'].hasError('required')">Имя обязательна</span>
+                        <span *ngIf="form.controls['fName'].hasError('required')">{{'Имя обязательно' | translate}}</span>
                     </span>
-                    <h3>Имя:</h3>
-                    <input type="text" placeholder="Имя" formControlName="lName">
+                    <h3>{{'Имя' | translate}}:</h3>
+                    <input type="text" placeholder="{{'Имя' | translate}}" formControlName="lName">
                     <span class="error" *ngIf="form.controls['lName'].touched && form.controls['lName'].invalid">
-                        <span *ngIf="form.controls['lName'].hasError('required')">Фамилия обязательна</span>
+                        <span *ngIf="form.controls['lName'].hasError('required')">{{'Фамилия обязательна' | translate}}</span>
                     </span>
                 </div>
             </div>
-            <button type="submit" class="authorization-signIn-form-button" [disabled]="form.invalid || form.disabled">Регистрация</button>
-            <button type="button" routerLink="/login" class="authorization-logIn-form-logIn_button" >Уже есть аккаунт</button>
+            <button type="submit" class="authorization-signIn-form-button" [disabled]="form.invalid || form.disabled">{{'Регистрация' | translate}}</button>
+            <button type="button" routerLink="/login" class="authorization-logIn-form-logIn_button" >{{'Уже есть аккаунт' | translate}}</button>
         </div>
     </form>
 </div>

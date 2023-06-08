@@ -11,8 +11,10 @@ input{
     text-align : center;
 }
 
-.context{
+.content{
     margin: 3vw;
+    padding: 1vw;
+    border: 1px solid black
 }
 
 .context-text{
@@ -22,13 +24,20 @@ input{
 }
 
 .add{
+    display: flex;
     font-size: 1.5vw;
     text-align: center; 
-    margin-left:30vw;
+    margin-left:25vw;
+    margin-top: 2vw;
     padding:1vw;
     background-color: rgb(238, 101, 101);
 }
 
 .add:hover{
     background-color: rgba(238, 101, 101,0.5);
+}
+
+.error{
+    color:red;
+    font-size:2vw;
 }

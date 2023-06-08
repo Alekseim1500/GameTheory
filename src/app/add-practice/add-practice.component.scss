@@ -26,6 +26,13 @@ input{
     margin-bottom:1vw;
 }
 
+.question{
+    margin-top: 1vw;
+    border: 1px solid black;
+    padding-left: 0.5vw;
+    padding-bottom: 1vw;
+}
+
 .inputField{
     width: 60vw;
     height: 20vw;
@@ -56,4 +63,30 @@ input{
     margin-left:30vw;
     padding:1vw;
     background-color: rgb(238, 101, 101);
+}
+
+
+.choice{
+    margin-top:1vw
+}
+
+.add:hover{
+    background-color: rgba(238, 101, 101,0.5);
+}
+
+.lable{
+    font-size:2vw;
+}
+
+.add_question{
+    font-size: 1vw;
+    text-align: center; 
+    margin-left:28.5vw;
+    padding:0.5vw;
+    margin-top:1vw;
+    background-color: rgb(238, 101, 101);
+}
+
+.add_question:hover{
+    background-color: rgba(238, 101, 101,0.5);
 }

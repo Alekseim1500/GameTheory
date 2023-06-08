@@ -1,8 +1,10 @@
 <app-head></app-head>
 <app-main-content>
-    <h1 class="title">{{lectire.title}}</h1>
+    <h1 class="title">{{lecture.title}}</h1>
     <div class=text>
-        
+        <ngx-doc-viewer
+        [url]="url" viewer="mammoth"  style="width:100%;height:93vh;"
+        ></ngx-doc-viewer>
     </div>
 </app-main-content>
-<button *ngIf="lectire.tests.length!=0" type="button" routerLink="/test/{{lectire.tests[0].id}}" class="toTest" >Перейти к тесту по теме</button>
+<button *ngIf="lecture.tests.length!=0" type="button" routerLink="/test/{{lecture.tests[0].id}}" class="toTest" >Перейти к тесту по теме</button>

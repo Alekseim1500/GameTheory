@@ -23,6 +23,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './token.interceptor';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
       config:{
         tokenGetter: reqest=>reqest as any
       }
-    })
+    }),
+    NgxDocViewerModule
   ],
   providers: [
     {

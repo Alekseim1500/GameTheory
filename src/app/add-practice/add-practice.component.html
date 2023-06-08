@@ -8,6 +8,7 @@
         </select>
         <p class="context-text">Выберите лекцию:</p>
         <select>
+                <option>Добавить тест разделу</option>
                 <option *ngFor="let lectur of lectures; let i = index">{{i+1}}. {{lectur}}</option>
         </select>
         <p class="context-text">Выберите название теста:</p>
@@ -20,7 +21,13 @@
                 <p>Добавить картинку(НЕОБЯЗАТЕЛЬНО):</p>
                 <input type="file" class="inputFile" accept="image/*">
             </div>
-            <div *ngIf="false" class="answers">
+            <div class="choice">
+                <input type="radio" name="answer" id="answer1" value="Ch" (change)="onChange(1)"/>
+                <label for="answer1" class="lable">Выбор ответа</label>
+                <input type="radio" name="answer" id="answer2" value="Fi" (change)="onChange(2)"/>
+                <label for="answer2" class="lable">Поле заполения</label>
+            </div>
+            <div *ngIf="answerCh" class="answers">
                 <p>Выберите верный вариант</p>
                 <p class="answer-const">Вариант1</p>
                     <div class="answer">
@@ -43,11 +50,12 @@
                         <input class ="answer-text" type="text">
                     </div>
                 </div>
-                <div *ngIf="true" class="answers">
+                <div *ngIf="answerFi" class="answers">
                     <h3>Введите ответ:</h3>
                     <textarea class="inputFieldAnswer" placeholder="Введите ответ"></textarea>
                 </div>
         </div>
+        <button class="add_question">Добавить вопрос</button>
     </div>
     <button class="add">Добавить тест</button>
 

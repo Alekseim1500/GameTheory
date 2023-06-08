@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ContentService } from '../services/content.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Params } from '@angular/router';
-import Viewer from 'viewerjs'
 
 @Component({
   selector: 'app-lecture',
@@ -15,25 +14,21 @@ export class LectureComponent implements OnInit, OnDestroy {
   aSub1!: Subscription 
   aSub2!: Subscription 
   aSub3!: Subscription 
-  lectire: any
-  lectireFile!: File
-
+  lecture: any
+  lectureFile!: File
+  url!: string
 
   constructor(private contentService: ContentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.aSub1 = this.route.params.subscribe((params:Params)=>{
       this.aSub2 = this.contentService.getLecture(params['id']).subscribe(
-        (lectire: any) => {
-          this.lectire=lectire      
+        (lecture: any) => {
+          this.lecture=lecture 
+          this.url="http://localhost:9999/"+lecture.contentPath   
+          console.log(this.url)  
         }
       )
-      /*this.aSub3 = this.contentService.getLectureFile(params['id']).subscribe(
-        (lectire: any) => {
-          this.lectireFile=lectire
-      
-        }
-      )*/
     }
     )
   }

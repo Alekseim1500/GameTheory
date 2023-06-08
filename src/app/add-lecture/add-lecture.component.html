@@ -1,15 +1,67 @@
 <app-head></app-head>
 <app-main-content>
-    <h1 class="title">ДОБАВИТЬ ЛЕКЦИЮ</h1>
-    <div class = "context">
+    <h1 class="title">РАБОТА С РАЗДЕЛАМИ И ЛЕКЦИЯМИ</h1>
+    <form 
+        class="content"
+        [formGroup]="formAddCh"
+        (ngSubmit)="onSubmitAddCh()"
+    >
+        <p class="context-text">Выберите название нового раздела:</p>
+        <input type="text" placeholder="Нозвание нового раздела" formControlName="chapterName">
+        <span class="error" *ngIf="formAddCh.controls['chapterName'].touched && formAddCh.controls['chapterName'].invalid">
+            <span *ngIf="formAddCh.controls['chapterName'].hasError('required')">Введите навзание!</span>
+        </span>
+        <button type="submit" class="add">Добавить раздел</button>
+    </form>
+
+    <form 
+    class="content"
+    [formGroup]="formDelCh"
+    (ngSubmit)="onSubmitDelCh()"
+>
+        <p class="context-text">Выберите удаляемый раздел</p>
+        <select #chapterDel (change)="delCha(chapterDel.value)">
+            <option *ngFor="let chapter of chapters; let i = index" [value]="chapter.id">{{i+1}}. {{chapter.title}}</option>
+        </select>
+        <button type="submit" class="add">Удалить раздел</button>
+    </form>
+
+
+    <form 
+    class="content"
+    [formGroup]="formAddLec"
+    (ngSubmit)="onSubmitAddLec()"
+>
         <p class="context-text">Выберите раздел:</p>
-        <select >
-                <option *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}</option>
+        <select #chapterAdd (change)="addLec(chapterAdd.value)">
+            <option *ngFor="let chapter of chapters; let i = index" [value]="chapter.id">{{i+1}}. {{chapter.title}}</option>
         </select>
         <p class="context-text">Выберите название лекции:</p>
-        <input type="text" placeholder="Нозвание лекции">
+        <input type="text" placeholder="Нозвание лекции" formControlName="lectureName">
+        <span class="error" *ngIf="formAddLec.controls['lectureName'].touched && formAddLec.controls['lectureName'].invalid">
+            <span *ngIf="formAddLec.controls['lectureName'].hasError('required')">Введите навзание!</span>
+        </span>
         <p class="context-text">Добавьте лекцию Word:</p>
-        <input type="file" class="inputFile" accept=".doc,.docx">
-    </div>
-    <button class="add">Добавить лекцию</button>
+        <input type="file" class="inputFile" accept=".doc,.docx" (change)="onFileUpload($event)">
+        <button type="submit" class="add">Добавить лекцию</button>
+    </form>
+
+    <form 
+    class="content"
+    [formGroup]="formDelLec"
+    (ngSubmit)="onSubmitDelLec()"
+>
+        <p class="context-text">Выберите раздел:</p>
+        <select #chapterDelLec (change)="delLecCh(chapterDelLec.value)">
+            <option *ngFor="let chapter of chapters; let i = index" [value]="i">{{i+1}}. {{chapter.title}}</option>
+        </select>
+
+        <p class="context-text">Выберите лекцию:</p>
+        <select #lectureDelLec (change)="delLec(lectureDelLec.value)">
+            <option *ngFor="let lecture of chapters[chDelLec].lectures let i = index" [value]="lecture.id">{{i+1}}. {{lecture.title}}</option>
+        </select>
+
+        <button class="add">Удалить лекцию</button>
+    </form>
+
 </app-main-content>

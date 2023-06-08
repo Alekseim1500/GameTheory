@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 export class HeadComponent implements OnInit, OnDestroy {
 
   openMenu = false;
-  teacher=true;
+  teacher=false;
   aSub!: Subscription;
   userInfo!: UserInfo;
   imagePreview:any
@@ -31,7 +31,9 @@ export class HeadComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     //const userFromJwt = this.jwtHelperService.decodeToken(this.auth.getToken())
-    console.log(this.jwtHelperService.decodeToken(this.auth.getToken())['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'])
+    this.imagePreview = '../../assets/avatar.jpg'
+   if(this.jwtHelperService.decodeToken(this.auth.getToken())['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="Admin")
+      this.teacher=true
     this.aSub = this.userService.getUser().subscribe(
       (userInfo) => {
         this.userInfo=userInfo

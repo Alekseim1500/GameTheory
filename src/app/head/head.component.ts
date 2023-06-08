@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { User, UserInfo } from '../interfces';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-head',
@@ -25,9 +25,14 @@ export class HeadComponent implements OnInit, OnDestroy {
   constructor(private auth: AuthService,
     private userService: UserService,
     private jwtHelperService: JwtHelperService,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
     ) {
-  }
+      translate.addLangs(['ch','ru'])
+      const defLang=localStorage.getItem('language')
+      if(defLang!=null)
+        translate.use(defLang)
+     }
 
   ngOnInit(): void {
     //const userFromJwt = this.jwtHelperService.decodeToken(this.auth.getToken())
@@ -50,7 +55,10 @@ export class HeadComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  changeLanguage(lang: string){
+    localStorage.setItem('language',lang)
+    this.translate.use(lang)
+  }
 
   logout(event: Event){
     event.preventDefault()

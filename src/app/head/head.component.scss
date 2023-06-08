@@ -200,3 +200,12 @@ input{
 .exit:hover{
     background-color: rgba(255, 0, 0, 0.5);
 }
+
+.space{
+    flex-grow: 1;
+}
+
+.last{
+    background-color: rgb(0, 174, 255);
+    margin-right: 0;
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './token.interceptor';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { TranslateLoader,TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 
 @NgModule({
@@ -57,7 +60,15 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
         tokenGetter: reqest=>reqest as any
       }
     }),
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      useDefaultLang: false,
+    })
   ],
   providers: [
     {
@@ -69,3 +80,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http);
+}

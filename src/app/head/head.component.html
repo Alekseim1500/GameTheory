@@ -1,7 +1,7 @@
 <div class="head">
     <a routerLink="/home" class="head-logo">
         <img src="../../assets/logo.png" width="90" height="90">
-        <p class="head-logo-text"> Теория игр<br>
+        <p class="head-logo-text">{{'Теория игр' | translate}}<br>
             Сборник лекций и практический заданий
         </p>
     </a>
@@ -20,5 +20,11 @@
     <a class="navbar-button" routerLink="/lectures" >Лекции</a>
     <a class="navbar-button" routerLink="/practices" >Практики</a>
     <a class="navbar-button" routerLink="/map" >Карта стайта</a>
+    <div class="space"></div>
+    <select class="navbar-button last" #changeLang (change)="changeLanguage(changeLang.value)">
+        <option value ="ch">中國人</option>
+        <option value ="ru">Русский</option>
+    </select>
+
 </div>
 

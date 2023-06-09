@@ -31,7 +31,7 @@ export class ContentService {
     }
 
     postRes(id:number,testType:string, answ:any, time:number): any{
-        return this.http.post <any>('http://localhost:9999/api/Tests/'+id+'/results?'+testType, {
+        return this.http.post <any>('http://localhost:9999/api/Tests/'+id+'/results?testType='+testType, {
             "questions": answ,
             "completionTimeInSeconds": time
           })

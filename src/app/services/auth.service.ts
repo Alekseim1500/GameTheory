@@ -36,8 +36,8 @@ export class AuthService {
         return this.http.post<{ token: string }> ('http://localhost:9999/api/Account/login', user).pipe(
             tap(
                 ({token})=>{
-                    localStorage.setItem('auth-tocken', token)
-                    this.setToken(token)
+                    localStorage.setItem('auth-tocken', "Bearer "+token)
+                    this.setToken("Bearer "+token)
                 }
             )
         )

@@ -2,10 +2,10 @@
 <app-main-content>
     <h1 class="title">{{test.title}}</h1>
     <div class=text>
-        <p class="text-count">Количество вопросов: {{test.questions.length}}</p>
+        <p class="text-count">{{"Количество вопросов" | translate}}: {{test.questions.length}}</p>
     </div>
-    <button type="button" routerLink="/test/{{test.id}}/question/1"  (click)="startTest()" class="startTest" >Начать тест</button>
+    <button type="button" routerLink="/test/{{test.id}}/question/1"  (click)="startTest()" class="startTest" >{{"Начать тест" |translate}}</button>
     <div class="result" *ngFor="let result of test.results">
-        <p class="result-info">{{result.lastName}} {{result.firstName}}. Время прохождения: {{test.completionTimeInSeconds/60}} мин. Результат: {{test.questionsCount/test.rightAnswers}}%</p>
+        <p class="result-info">{{result.lastName}} {{result.firstName}}. {{"Время прохождения" | translate}} {{getTime(result.completionTimeInSeconds)}} min. {{"Результат" | translate}}: {{getResult(result.questionsCount,result.rightAnswers)}}%</p>
     </div>
 </app-main-content>

@@ -38,6 +38,25 @@ export class TestComponent implements OnInit {
   }
 
 
+  toNumber(string:string):number{
+    console.log(string)
+    return Number(string)
+  }
+
+  getTime(string:string): string{
+    console.log(string)
+    if(Number(string)!=0)
+      return String(Math.ceil(Number(string)/60))
+    else
+      return '0'
+  }
+
+  getResult(quest:string,answ:string ): string{
+    if(Number(answ)!=0)
+      return String(Math.ceil(Number(quest)/Number(answ)))
+    else
+      return '0'
+  }
 
 }
 

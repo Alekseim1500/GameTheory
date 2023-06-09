@@ -26,5 +26,16 @@ export class ContentService {
         return this.http.get <any>('http://localhost:9999/api/Lectures/'+id+'/file')
     }
 
+    getTest(id: string, param:string): any{
+        return this.http.get <any>('http://localhost:9999/api/Tests/'+id+'?testType='+param)
+    }
+
+    postRes(id:number,testType:string, answ:any, time:number): any{
+        return this.http.post <any>('http://localhost:9999/api/Tests/'+id+'/results?'+testType, {
+            "questions": answ,
+            "completionTimeInSeconds": time
+          })
+    }
+
 
 }

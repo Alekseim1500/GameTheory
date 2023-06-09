@@ -4,7 +4,8 @@
     <div class="chapter" *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter.title}}<br>
         <div *ngFor="let lecture of chapter.lectures; let j = index" >
             <a class="lecture" routerLink="/lecture/{{lecture.id}}"> {{i+1}}.{{j+1}} {{lecture.title}}<br></a>
-            <a class="test" *ngFor="let test of lecture.tests; let k = index" routerLink="/test/{{test.id}}"> {{i+1}}.{{j+1}}.{{k+1}} {{test.title}}<br></a>
+            <a class="test" *ngFor="let test of lecture.tests; let k = index" routerLink="/test/{{test.id}}&Lecture"> {{i+1}}.{{j+1}}.{{k+1}} {{test.title}}<br></a>
         </div>
+        <a *ngFor="let practice of chapter.tests" routerLink="/test/{{practice.id}}&Chapter"> {{i+1}} {{practice.title}}<br></a>
     </div>
 </app-main-content>

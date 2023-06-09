@@ -1,13 +1,11 @@
 <app-head></app-head>
 <app-main-content>
-    <h1 class="title">Практика по теме: {{testName}}</h1>
+    <h1 class="title">{{test.title}}</h1>
     <div class=text>
-        <p class="text-count">Количество вопросов: {{questionCount}}</p>
-        <p class="text-time">Время на прохождение: {{timeCount}} мин</p>
+        <p class="text-count">Количество вопросов: {{test.questions.length}}</p>
     </div>
-    <button type="button" routerLink="/test/question/1" class="startTest" >Начать тест</button>
-    <div class="result"> <!--*ngFor="let result of results"-->
-        <img class="result-logo" src="../../assets/avatar.jpg">
-        <p class="result-info">{{lName}} {{fName}}. Время прохождения: {{resultTime}} мин. Результат: {{resultProsent}}</p>
+    <button type="button" routerLink="/test/{{test.id}}/question/1"  (click)="startTest()" class="startTest" >Начать тест</button>
+    <div class="result" *ngFor="let result of test.results">
+        <p class="result-info">{{result.lastName}} {{result.firstName}}. Время прохождения: {{test.completionTimeInSeconds/60}} мин. Результат: {{test.questionsCount/test.rightAnswers}}%</p>
     </div>
 </app-main-content>

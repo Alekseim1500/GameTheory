@@ -1,45 +1,38 @@
 <app-head></app-head>
 <app-main-content>
-    <h1 class="title">{{practicName}}</h1>
-    <div class=main>
-        <div class="questions">
-            <button *ngFor="let question of questions; let i = index" routerLink="../{{i+1}}" class="question" [ngClass]="{answered:question.isAnsvered, active:question.isActive}" >
-                {{i+1}}
-            </button>
+    <h1 class="title">{{test.title}}</h1>
+    <div *ngFor="let question of test.questions let j = index">
+        <div class=main>
+            <div>
+                    <h2>Вопрос номер №{{j+1}}</h2>
+                    <div class="questionText">{{question.question}}</div>
+            </div>
         </div>
-        <div>
-            <h2>Вопрос номер №1</h2>
-            <div class="questionText">{{questionText}}</div>
+        <div *ngIf="question.image!=null" class="question-immage">
+            <img [src]="question.image" > 
+        </div>
+        <div *ngIf="question.answers.length==4" class="answers{{j+1}}">
+            <div>
+                <input type="radio" id="answer1.{{j+1}}" name="answer{{j+1}}" value="{{question.answers[0]}}">
+                <label for="answer1.{{j+1}}">{{question.answers[0]}}</label>
+            </div>
+            <div>
+                <input type="radio" id="answer2.{{j+1}}" name="answer{{j+1}}" value="{{question.answers[1]}}">
+                <label for="answer2.{{j+1}}">{{question.answers[1]}}</label>
+            </div>
+            <div>
+                <input type="radio" id="answer3.{{j+1}}" name="answer{{j+1}}" value="{{question.answers[2]}}">
+                <label for="answer3.{{j+1}}">{{question.answers[2]}}</label>
+            </div>
+                <div>
+                    <input type="radio" id="answer4.{{j+1}}" name="answer{{j+1}}" value="{{question.answers[3]}}">
+                    <label for="answer4.{{j+1}}">{{question.answers[3]}}</label>
+                </div>
+            </div>
+        <div *ngIf="question.answers.length==0" class="answers">
+            <h3>Введите ответ:</h3>
+            <textarea id="textarea{{j+1}}" class="inputField" placeholder="Введите ответ"></textarea>
         </div>
     </div>
-    <div *ngIf="false" class="question-immage">
-        <img src="../../assets/questionImmage.png" > 
-    </div>
-    <div *ngIf="false" class="answers">
-        <div>
-            <input type="radio" id="answer1" name="answer" >
-            <label for="answer1">Игры с нулевой суммой</label>
-        </div>
-        <div>
-            <input type="radio" id="answer2" name="answer" >
-            <label for="answer2">Игры с не нулевой суммой</label>
-        </div>
-        <div>
-            <input type="radio" id="answer3" name="answer" >
-            <label for="answer3">Стратегиея</label>
-        </div>
-        <div>
-            <input type="radio" id="answer4" name="answer" >
-            <label for="answer4">Основная теорема матричных игр</label>
-        </div>
-    </div>
-    <div *ngIf="true" class="answers">
-        <h3>Введите ответ:</h3>
-        <textarea class="inputField" placeholder="Введите ответ"></textarea>
-    </div>
-    <div class="buttons">
-        <button type="button" class="check chenge" >Предыдущий вопрос</button>
-        <button type="button" class="check" >Проверить</button>
-        <button type="button" class="check chenge" >Следующий вопрос</button>
-    </div>
+        <button type="button" class="check" (click)="send()">Проверить</button>
 </app-main-content>

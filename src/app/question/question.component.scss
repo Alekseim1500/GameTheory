@@ -1,6 +1,6 @@
 h2{
     margin-top: 0;
-    margin-left: 15vw;
+    margin-left: 26vw;
 }
 
 h3{
@@ -45,7 +45,7 @@ input{
 }
 
 .main{
-    display: flex;
+    display: block;
 }
 
 .answered{
@@ -75,13 +75,13 @@ input{
 }
 
 .check{
-    font-size: 1.5vw;
+    font-size: 20px;
     text-align: center; 
-    margin-left:9vw;
-    margin-top:3vw;
-    padding:0.25vw;
-    background-color: lightblue;
-
+    margin-left:40%;
+    margin-bottom:7vw;
+    padding:1vw;
+    background-color: rgb(238, 201, 201);
+    font-family: Courier New, monospace	;
 }
 
 .chenge{

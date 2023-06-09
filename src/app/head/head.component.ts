@@ -67,3 +67,4 @@ export class HeadComponent implements OnInit, OnDestroy {
   }
 
 }
+

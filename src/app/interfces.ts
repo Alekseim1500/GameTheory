@@ -12,3 +12,8 @@ export interface UserInfo{
     image?: string
     role?: string
 }
+
+export interface answer{
+    id:number
+    answers:string[]
+}

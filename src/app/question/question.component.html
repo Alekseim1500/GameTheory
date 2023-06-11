@@ -4,12 +4,12 @@
     <div *ngFor="let question of test.questions let j = index">
         <div class=main>
             <div>
-                    <h2>Вопрос номер №{{j+1}}</h2>
+                    <h2>{{"Вопрос" | translate}} {{j+1}}</h2>
                     <div class="questionText">{{question.question}}</div>
             </div>
         </div>
-        <div *ngIf="question.image!=null" class="question-immage">
-            <img [src]="question.image" > 
+        <div *ngIf="question.image!=''" class="question-immage">
+            <img [src]="'http://localhost:9999/'+question.image" > 
         </div>
         <div *ngIf="question.answers.length==4" class="answers{{j+1}}">
             <div>

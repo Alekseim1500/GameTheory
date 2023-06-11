@@ -13,7 +13,14 @@ export interface UserInfo{
     role?: string
 }
 
-export interface answer{
-    id:number
-    answers:string[]
+export interface quest{
+	question: string
+    order: number
+	image: string
+	answerType: number
+	testAnswers: [{
+        answer: string,
+        isRight: boolean
+    }
+    ]
 }

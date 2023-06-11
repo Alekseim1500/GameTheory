@@ -2,61 +2,71 @@
 <app-main-content>
     <h1 class="title">ДОБАВИТЬ ТЕСТ</h1>
     <div class = "context">
-        <p class="context-text">Выберите раздел:</p>
-        <select>
-                <option *ngFor="let chapter of chapters; let i = index">{{i+1}}. {{chapter}}</option>
-        </select>
-        <p class="context-text">Выберите лекцию:</p>
-        <select>
-                <option>Добавить тест разделу</option>
-                <option *ngFor="let lectur of lectures; let i = index">{{i+1}}. {{lectur}}</option>
-        </select>
-        <p class="context-text">Выберите название теста:</p>
-        <input type="text" placeholder="Нозвание теста">
-        <div class="question">
-            <h2>Вопрос №1</h2>
-            <div>
-                <p>Введите текст вопроса</p>
-                <textarea class="inputField" placeholder="Введите текст вопроса"></textarea>
-                <p>Добавить картинку(НЕОБЯЗАТЕЛЬНО):</p>
-                <input type="file" class="inputFile" accept="image/*">
-            </div>
-            <div class="choice">
-                <input type="radio" name="answer" id="answer1" value="Ch" (change)="onChange(1)"/>
-                <label for="answer1" class="lable">Выбор ответа</label>
-                <input type="radio" name="answer" id="answer2" value="Fi" (change)="onChange(2)"/>
-                <label for="answer2" class="lable">Поле заполения</label>
-            </div>
-            <div *ngIf="answerCh" class="answers">
-                <p>Выберите верный вариант</p>
-                <p class="answer-const">Вариант1</p>
-                    <div class="answer">
-                        <input type="radio" id="answer1" name="answer" >
-                        <input class ="answer-text" type="text">
-                    </div>
-                <p class="answer-const">Вариант2</p>
-                    <div class="answer">
-                        <input type="radio" id="answer1" name="answer" >
-                        <input class ="answer-text" type="text">
-                    </div>
-                    <p class="answer-const">Вариант3</p>
-                    <div class="answer">
-                        <input type="radio" id="answer1" name="answer" >
-                        <input class ="answer-text" type="text">
-                    </div>
-                <p class="answer-const">Вариант4</p>
-                    <div class="answer">
-                        <input type="radio" id="answer1" name="answer" >
-                        <input class ="answer-text" type="text">
-                    </div>
+        <form 
+        [formGroup]="form"
+    >
+            <p class="context-text">Выберите раздел:</p>
+            <select #cha (change)="Ch(cha.value)">
+                <option *ngFor="let chapter of chapters; let i = index" [value]="chapter.id+'&'+i">{{i+1}}. {{chapter.title}}</option>
+            </select>
+    
+            <p class="context-text">Выберите лекцию:</p>
+            <select #lec (change)="Lec(lec.value)">
+                <option value="notForLect"  >Добавить тест по разделу</option>
+                <option *ngFor="let lecture of chapters[ch].lectures let i = index" [value]="lecture.id">{{i+1}}. {{lecture.title}}</option>
+            </select>
+    
+            <p class="context-text" >Выберите название теста:</p>
+            <input type="text" placeholder="Нозвание теста" formControlName="testName">
+            <span class="error" *ngIf="form.controls['testName'].touched && form.controls['testName'].invalid">
+                <span *ngIf="form.controls['testName'].hasError('required')">Введите навзание!</span>
+            </span>
+        </form>
+
+            <div id="{{i+1}}" class="question"  *ngFor="let question of questions; let i = index">
+                <h2>Вопрос №{{i+1}}</h2>
+                <div>
+                    <p>Введите текст вопроса</p>
+                    <textarea class="inputField" placeholder="Введите текст вопроса"></textarea>
+                    <p>Добавить картинку(НЕОБЯЗАТЕЛЬНО):</p>
+                    <input type="file" class="inputFile" (change)="onFileUpload($event, i)">
                 </div>
-                <div *ngIf="answerFi" class="answers">
-                    <h3>Введите ответ:</h3>
-                    <textarea class="inputFieldAnswer" placeholder="Введите ответ"></textarea>
+                <div class="choice">
+                    <input type="radio" name="answertype{{i+1}}" id="answerType1.{{i+1}}" value="Ch" (change)="onChange(1, i)" checked/>
+                    <label for="answerType.{{i+1}}" class="lable">Выбор ответа</label>
+                    <input type="radio" name="answertype{{i+1}}" id="answerType2.{{i+1}}" value="Fi" (change)="onChange(2, i)"/>
+                    <label for="answer2.{{i+1}}" class="lable">Поле заполения</label>
                 </div>
-        </div>
-        <button class="add_question">Добавить вопрос</button>
+                <div *ngIf="questions[i].answerType==1'{{i+1}}'" class="answers">
+                    <p>Выберите верный вариант</p>
+                    <p class="answer-const">Вариант1</p>
+                        <div class="answer">
+                            <input type="radio" id="answer1.{{i+1}}" name="answer.{{i+1}}" >
+                            <input class ="answer-text" type="text">
+                        </div>
+                    <p class="answer-const">Вариант2</p>
+                        <div class="answer">
+                            <input type="radio" id="answer1.{{i+1}}" name="answer.{{i+1}}" >
+                            <input class ="answer-text" type="text">
+                        </div>
+                        <p class="answer-const">Вариант3</p>
+                        <div class="answer">
+                            <input type="radio" id="answer1.{{i+1}}" name="answer.{{i+1}}" >
+                            <input class ="answer-text" type="text">
+                        </div>
+                    <p class="answer-const">Вариант4</p>
+                        <div class="answer">
+                            <input type="radio" id="answer1.{{i+1}}" name="answer.{{i+1}}" >
+                            <input class ="answer-text" type="text">
+                        </div>
+                    </div>
+                    <div *ngIf="questions[i].answerType==2'{{i+1}}'" class="answers">
+                        <h3>Введите ответ:</h3>
+                        <textarea class="inputFieldAnswer" placeholder="Введите ответ"></textarea>
+                    </div>
+            </div>
+        <button class="add_question" (click)="addQuestion()">Добавить вопрос</button>
     </div>
-    <button class="add">Добавить тест</button>
+    <button class="add" (click)="createTest()">Добавить тест</button>
 
 </app-main-content>

@@ -53,7 +53,7 @@ export class TestComponent implements OnInit {
 
   getResult(quest:string,answ:string ): string{
     if(Number(answ)!=0)
-      return String(Math.ceil(Number(quest)/Number(answ)))
+      return String((Number(answ)/Number(quest))*100)
     else
       return '0'
   }

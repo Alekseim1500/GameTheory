@@ -6,6 +6,7 @@
     </div>
     <button type="button" routerLink="/test/{{test.id}}/question/1"  (click)="startTest()" class="startTest" >{{"Начать тест" |translate}}</button>
     <div class="result" *ngFor="let result of test.results">
+        <img class="result-logo" [src]="'http://localhost:9999/'+result.avatar">
         <p class="result-info">{{result.lastName}} {{result.firstName}}. {{"Время прохождения" | translate}} {{getTime(result.completionTimeInSeconds)}} min. {{"Результат" | translate}}: {{getResult(result.questionsCount,result.rightAnswers)}}%</p>
     </div>
 </app-main-content>

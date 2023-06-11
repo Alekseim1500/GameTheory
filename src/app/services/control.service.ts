@@ -32,5 +32,14 @@ export class ControlService {
     return this.http.delete<any>('http://localhost:9999/api/Lectures/' + id)
   }
 
+  immageTest(image: File): any{
+    const fd = new FormData()
+    fd.append('image',image,image.name)
+    return this.http.post<any>('http://localhost:9999/api/Tests/image', fd)
+  }
 
+  addTest(parentId: number,title:string,questions:any,type:string): any{
+    console.log({"parentId": parentId, "title": title, "testQuestions": questions})
+    return this.http.post<any>('http://localhost:9999/api/tests?testType='+type, {"parentId": parentId, "title": title, "testQuestions": questions})
+  }
 }

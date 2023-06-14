@@ -16,10 +16,11 @@ export class AddPracticeComponent implements OnInit {
   chapters:any;
   form!: FormGroup
   ch = 0
-  lec = "notForLect"
+  lecturShow=0
+  lecturId = -1
   chapterId = 1
   testType = "Chapter"
-
+  testId=-1
 
   questions:quest[] =[{
     question: "",
@@ -80,7 +81,16 @@ export class AddPracticeComponent implements OnInit {
   }
 
   Lec(id: any){
-    this.lec = id
+    if(id==-1)
+      this.lecturId = Number(id)
+      else{
+        this.lecturId = id.split("&", 2)[0]
+        this.lecturShow = id.split("&",2)[1]
+      }
+  }
+
+  Test(id: any){
+    this.testId=id
   }
 
 
@@ -116,17 +126,35 @@ export class AddPracticeComponent implements OnInit {
     });
 
     let parentId: any
-    if(this.lec == "notForLect"){
+    if(this.lecturId == -1){
       parentId = this.chapterId
       this.testType="Chapter"
     }
     else{
-      parentId= this.lec
+      parentId= this.lecturId
       this.testType="Lecture"
     }
     this.controlService.addTest(parentId,this.form.value.testName,this.questions,this.testType).subscribe(
       () => {
         this.router.navigate(['/practices'])
+      }
+    )
+  }
+
+  deleteTest(){
+    if(this.lecturId == -1){
+      this.testType="Chapter"
+    }
+    else{
+      this.testType="Lecture"
+    }
+
+    this.controlService.delTest(this.testId, this.testType).subscribe(
+      ()=>{
+        this.router.navigate(['/practices'])
+      },
+      (error: any) =>{
+        console.warn(error)
       }
     )
   }

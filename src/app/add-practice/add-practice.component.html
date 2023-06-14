@@ -1,5 +1,37 @@
 <app-head></app-head>
 <app-main-content>
+    <div class="context question">
+        <h1 class="title">УДАЛИТЬ ТЕСТ</h1>
+        <p class="context-text">Выберите раздел:</p>
+            <select #cha (change)="[Ch(cha.value), Lec(-1)]">
+                <option>Выберите раздел</option>
+                <option *ngFor="let chapter of chapters; let i = index" [value]="chapter.id+'&'+i">{{i+1}}. {{chapter.title}}</option>
+            </select>
+    
+            <p class="context-text">Выберите лекцию:</p>
+            <select #lect (change)="Lec(lect.value)">
+                <option value="-1">Удалить тест по разделу</option>
+                <option *ngFor="let lecture of chapters[ch].lectures let i = index" [value]="lecture.id+'&'+i">{{i+1}}. {{lecture.title}}</option>
+            </select>
+
+            <p class="context-text">Выберите тест:</p>
+            <div *ngIf="lecturId==-1">
+                <h1>Удалить тест по теме</h1>
+                <select #testCh (change)="Test(testCh.value)">
+                    <option>Выберите тест</option>
+                    <option *ngFor="let test of chapters[ch].tests let i = index" [value]="test.id">{{i+1}}. {{test.title}}</option>
+                </select>
+            </div>
+            <div *ngIf="lecturId!=-1">
+                <select #testLec  (change)="Test(testLec.value)">
+                    <option>Выберите тест</option>
+                    <option *ngFor="let test of chapters[ch].lectures[lecturShow].tests let i = index" [value]="test.id">{{i+1}}. {{test.title}}</option>
+                </select>
+            </div>
+
+            <button class="add" (click)="deleteTest()">Удалить тест</button>
+    </div>
+
     <h1 class="title">ДОБАВИТЬ ТЕСТ</h1>
     <div class = "context">
         <form 
@@ -12,7 +44,7 @@
     
             <p class="context-text">Выберите лекцию:</p>
             <select #lec (change)="Lec(lec.value)">
-                <option value="notForLect"  >Добавить тест по разделу</option>
+                <option value=-1  >Добавить тест по разделу</option>
                 <option *ngFor="let lecture of chapters[ch].lectures let i = index" [value]="lecture.id">{{i+1}}. {{lecture.title}}</option>
             </select>
     

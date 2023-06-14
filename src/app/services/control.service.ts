@@ -39,7 +39,10 @@ export class ControlService {
   }
 
   addTest(parentId: number,title:string,questions:any,type:string): any{
-    console.log({"parentId": parentId, "title": title, "testQuestions": questions})
     return this.http.post<any>('http://localhost:9999/api/tests?testType='+type, {"parentId": parentId, "title": title, "testQuestions": questions})
+  }
+
+  delTest(id: number,type:string): any{
+    return this.http.delete<any>('http://localhost:9999/api/tests/'+id+'?testType='+type)
   }
 }
